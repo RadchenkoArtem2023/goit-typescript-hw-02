@@ -1,10 +1,8 @@
+import { Image } from "../App/App.types";
+import style from "./ImageModal.module.css";
+import Modal from "react-modal";
 
-import { Image } from '../App/App.types';
-import style from './ImageModal.module.css';
-import Modal from 'react-modal';
-
-Modal.setAppElement('#root');
-
+Modal.setAppElement("#root");
 
 interface ImageModalProps {
   isOpen: boolean;
@@ -12,15 +10,17 @@ interface ImageModalProps {
   image?: Image | null;
 }
 
-
-const ImageModal:React.FC<ImageModalProps> = ({ isOpen, onRequestClose, image }) => {
+const ImageModal: React.FC<ImageModalProps> = ({
+  isOpen,
+  onRequestClose,
+  image,
+}) => {
   return (
     <Modal
       isOpen={isOpen}
       onRequestClose={onRequestClose}
       className={style.modal}
-      overlayClassName={style.overlay}
-    >
+      overlayClassName={style.overlay}>
       <button className={style.closeButton} onClick={onRequestClose}>
         &times;
       </button>
@@ -30,13 +30,12 @@ const ImageModal:React.FC<ImageModalProps> = ({ isOpen, onRequestClose, image })
         className={style.image}
       />
       <div className={style.info}>
-        <h2 className={style.descr}>{image?.description || 'Untitled'}</h2>
+        <h2 className={style.descr}>{image?.description || "Untitled"}</h2>
         <p className={style.text}>By: {image?.user?.name}</p>
         <p className={style.text}>Likes: {image?.likes}</p>
       </div>
     </Modal>
   );
 };
-
 
 export default ImageModal;

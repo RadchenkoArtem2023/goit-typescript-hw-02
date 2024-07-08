@@ -21,7 +21,6 @@ const App = () => {
   const [error, setError] = useState<string | null>(null);
   const [selectedImage, setSelectedImage] = useState<Image | null>(null);
 
-  // Функція для отримання зображень з сервера за допомогою API Unsplash
   const fetchImages = useCallback(async (): Promise<void> => {
     try {
       setLoading(true);
