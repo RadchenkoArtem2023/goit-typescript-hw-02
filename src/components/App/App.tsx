@@ -51,7 +51,6 @@ const App = () => {
     }
   }, [query, page]);
 
-  // Ефект для виклику функції fetchImages при зміні query або page
   useEffect(() => {
     if (query) {
       fetchImages();
